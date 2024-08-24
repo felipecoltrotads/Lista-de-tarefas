@@ -9,7 +9,7 @@ type TaskProps = {
 }
 
 
-const task = ({ title, description, concluded, onToggleComplete, onDelete }: TaskProps) => {
+const TaskItem = ({ title, description, concluded, onToggleComplete, onDelete }: TaskProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
@@ -17,10 +17,10 @@ const task = ({ title, description, concluded, onToggleComplete, onDelete }: Tas
                 {description ? <Text>{description}</Text> : null}
             </View>
             <TouchableOpacity onPress={onToggleComplete}>
-                <Text>{concluded ? 'UNDO' : 'CONCLUDED'}</Text>
+                <Text>{concluded ? '' : 'Concluido'}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={onDelete}>
-                <Text>Delete</Text>
+                <Text>Excluir</Text>
             </TouchableOpacity>
         </View>
     );
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default task;
+export default TaskItem;
